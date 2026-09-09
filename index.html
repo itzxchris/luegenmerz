@@ -139,7 +139,74 @@
       background: var(--dark);
       font-size: 14px;
     }
+.case-card {
+  margin-top: 24px;
+  padding: 28px;
+  background: white;
+  border: 1px solid var(--border);
+  border-top: 6px solid var(--red);
+}
 
+.case-card h3 {
+  margin: 0 0 28px;
+  font-size: 34px;
+  line-height: 1.1;
+}
+
+.statements {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.statement {
+  padding-top: 18px;
+  border-top: 3px solid var(--dark);
+}
+
+.statement-label {
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.date {
+  margin-bottom: 14px;
+  color: var(--red);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+blockquote {
+  min-height: 150px;
+  margin: 0 0 20px;
+  font-size: 19px;
+  line-height: 1.45;
+}
+
+.video-placeholder {
+  display: grid;
+  aspect-ratio: 16 / 9;
+  place-items: center;
+  color: #aaaaaa;
+  background: #222222;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 760px) {
+  .statements {
+    grid-template-columns: 1fr;
+  }
+
+  .case-card {
+    padding: 20px;
+  }
+}
     @media (max-width: 600px) {
       .nav {
         min-height: 62px;
