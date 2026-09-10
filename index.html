@@ -187,15 +187,12 @@ blockquote {
   line-height: 1.45;
 }
 
-.video-placeholder {
-  display: grid;
+.video-frame {
+  display: block;
+  width: 100%;
   aspect-ratio: 16 / 9;
-  place-items: center;
-  color: #aaaaaa;
-  background: #222222;
-  font-size: 14px;
-  font-weight: bold;
-  letter-spacing: 1px;
+  border: 0;
+  background: #000000;
 }
 
 @media (max-width: 760px) {
@@ -273,7 +270,12 @@ blockquote {
         Das gilt ausdrücklich auch für Personen mit Schutzanspruch.“
       </blockquote>
 
-      <div class="video-placeholder">VIDEO FOLGT</div>
+      <iframe
+  class="video-frame"
+  src="https://www.youtube.com/embed/QReR9aJW7Pg"
+  title="Erste Aussage vom 23.01.2025"
+  allowfullscreen>
+</iframe>
     </section>
 
     <section class="statement">
@@ -286,7 +288,12 @@ blockquote {
         Niemand von uns will die Grenzen schließen.“
       </blockquote>
 
-      <div class="video-placeholder">VIDEO FOLGT</div>
+      <iframe
+  class="video-frame"
+  src="https://www.youtube.com/embed/eqlZiLFAkJI"
+  title="Zweite Aussage vom 24.02.2025"
+  allowfullscreen>
+</iframe>
     </section>
   </div>
 </article>
