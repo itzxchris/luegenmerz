@@ -83,6 +83,10 @@
       line-height: 1.5;
     }
 
+    .hero p strong {
+      color: var(--dark);
+    }
+
     .button {
       display: inline-block;
       margin-top: 18px;
@@ -92,14 +96,6 @@
       text-decoration: none;
       font-weight: bold;
       border-radius: 4px;
-    }
-
-    .notice {
-      margin: 32px 0;
-      padding: 20px;
-      border-left: 5px solid var(--red);
-      background: #fff0f0;
-      line-height: 1.5;
     }
 
     .section {
@@ -125,85 +121,119 @@
       font-weight: bold;
     }
 
-    .empty {
-      padding: 50px 24px;
-      text-align: center;
-      background: white;
-      border: 1px dashed var(--border);
-      color: var(--muted);
-    }
-
     footer {
       padding: 30px 0;
       color: #aaaaaa;
       background: var(--dark);
       font-size: 14px;
     }
-.case-card {
-  margin-top: 24px;
-  padding: 28px;
-  background: white;
-  border: 1px solid var(--border);
-  border-top: 6px solid var(--red);
-}
 
-.case-card h3 {
-  margin: 0 0 28px;
-  font-size: 34px;
-  line-height: 1.1;
-}
+    .case-card {
+      margin-top: 24px;
+      padding: 28px;
+      background: white;
+      border: 1px solid var(--border);
+      border-top: 6px solid var(--red);
+    }
 
-.statements {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-}
+    .case-card h3 {
+      margin: 0 0 28px;
+      font-size: 34px;
+      line-height: 1.1;
+    }
 
-.statement {
-  padding-top: 18px;
-  border-top: 3px solid var(--dark);
-}
+    .statements {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
 
-.statement-label {
-  margin-bottom: 8px;
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
+    .statement {
+      padding-top: 18px;
+      border-top: 3px solid var(--dark);
+    }
 
-.date {
-  margin-bottom: 14px;
-  color: var(--red);
-  font-size: 20px;
-  font-weight: bold;
-}
+    .statement-label {
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
 
-blockquote {
-  min-height: 150px;
-  margin: 0 0 20px;
-  font-size: 19px;
-  line-height: 1.45;
-}
+    .date {
+      margin-bottom: 14px;
+      color: var(--red);
+      font-size: 20px;
+      font-weight: bold;
+    }
 
-.video-frame {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: 0;
-  background: #000000;
-}
+    blockquote {
+      min-height: 150px;
+      margin: 0 0 20px;
+      font-size: 19px;
+      line-height: 1.45;
+    }
 
-@media (max-width: 760px) {
-  .statements {
-    grid-template-columns: 1fr;
-  }
+    /* Eigene Vorschau: zunächst sind nur Fläche und Play-Button sichtbar. */
+    .video-launcher {
+      display: grid;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      place-items: center;
+      border: 0;
+      background: #111111;
+      cursor: pointer;
+    }
 
-  .case-card {
-    padding: 20px;
-  }
-}
+    .video-launcher:hover {
+      background: #1d1d1d;
+    }
+
+    .video-launcher:focus-visible {
+      outline: 4px solid var(--red);
+      outline-offset: 3px;
+    }
+
+    .play-icon {
+      position: relative;
+      display: block;
+      width: 76px;
+      height: 54px;
+      border-radius: 16px;
+      background: var(--red);
+    }
+
+    .play-icon::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-38%, -50%);
+      border-top: 11px solid transparent;
+      border-bottom: 11px solid transparent;
+      border-left: 17px solid white;
+    }
+
+    .video-frame {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      background: #000000;
+    }
+
+    @media (max-width: 760px) {
+      .statements {
+        grid-template-columns: 1fr;
+      }
+
+      .case-card {
+        padding: 20px;
+      }
+    }
+
     @media (max-width: 600px) {
       .nav {
         min-height: 62px;
@@ -242,9 +272,9 @@ blockquote {
         <h1>Gesagt.<br><span>Vergessen?</span></h1>
 
         <p>
-          Diese Seite sammelt Aussagen von Friedrich Merz,
-          die später widersprochen, relativiert oder ins Gegenteil
-          verkehrt wurden.
+          Diese Seite sammelt Aussagen von Friedrich Merz, die später
+          <strong>VON IHM SELBST</strong> widersprochen, relativiert oder ins
+          Gegenteil verkehrt wurden.
         </p>
 
         <a class="button" href="#faelle">Zu den Fällen</a>
@@ -258,45 +288,47 @@ blockquote {
       </div>
 
       <article class="case-card">
-  <h3>Grenzschließungen</h3>
+        <h3>Grenzschließungen</h3>
 
-  <div class="statements">
-    <section class="statement">
-      <div class="statement-label">Erste Aussage</div>
-      <div class="date">23.01.2025</div>
+        <div class="statements">
+          <section class="statement">
+            <div class="statement-label">Erste Aussage</div>
+            <div class="date">23.01.2025</div>
 
-      <blockquote>
-        „Es wird ein faktisches Einreiseverbot in die BRD für alle geben.
-        Das gilt ausdrücklich auch für Personen mit Schutzanspruch.“
-      </blockquote>
+            <blockquote>
+              „Es wird ein faktisches Einreiseverbot in die BRD für alle geben.
+              Das gilt ausdrücklich auch für Personen mit Schutzanspruch.“
+            </blockquote>
 
-      <iframe
-  class="video-frame"
-  src="https://www.youtube.com/embed/QReR9aJW7Pg"
-  title="Erste Aussage vom 23.01.2025"
-  allowfullscreen>
-</iframe>
-    </section>
+            <button
+              class="video-launcher"
+              type="button"
+              data-video-id="QReR9aJW7Pg"
+              aria-label="Erste Aussage vom 23.01.2025 abspielen">
+              <span class="play-icon" aria-hidden="true"></span>
+            </button>
+          </section>
 
-    <section class="statement">
-      <div class="statement-label">Zweite Aussage</div>
-      <div class="date">24.02.2025</div>
+          <section class="statement">
+            <div class="statement-label">Zweite Aussage</div>
+            <div class="date">24.02.2025</div>
 
-      <blockquote>
-        „Niemand von uns spricht über Grenzschließungen, niemand.
-        Obwohl das im Wahlkampf streckenweise behauptet worden ist.
-        Niemand von uns will die Grenzen schließen.“
-      </blockquote>
+            <blockquote>
+              „Niemand von uns spricht über Grenzschließungen, niemand.
+              Obwohl das im Wahlkampf streckenweise behauptet worden ist.
+              Niemand von uns will die Grenzen schließen.“
+            </blockquote>
 
-      <iframe
-  class="video-frame"
-  src="https://www.youtube.com/embed/eqlZiLFAkJI"
-  title="Zweite Aussage vom 24.02.2025"
-  allowfullscreen>
-</iframe>
-    </section>
-  </div>
-</article>
+            <button
+              class="video-launcher"
+              type="button"
+              data-video-id="eqlZiLFAkJI"
+              aria-label="Zweite Aussage vom 24.02.2025 abspielen">
+              <span class="play-icon" aria-hidden="true"></span>
+            </button>
+          </section>
+        </div>
+      </article>
     </section>
   </main>
 
@@ -305,5 +337,27 @@ blockquote {
       Lügenmerz.de – politische Dokumentation und Kampagne
     </div>
   </footer>
+
+  <script>
+    document.querySelectorAll(".video-launcher").forEach((button) => {
+      button.addEventListener("click", () => {
+        const videoId = button.dataset.videoId;
+        const iframe = document.createElement("iframe");
+
+        iframe.className = "video-frame";
+        iframe.src =
+          "https://www.youtube-nocookie.com/embed/" +
+          encodeURIComponent(videoId) +
+          "?autoplay=1";
+        iframe.title = button.getAttribute("aria-label");
+        iframe.allow =
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+        iframe.referrerPolicy = "strict-origin-when-cross-origin";
+
+        button.replaceWith(iframe);
+      });
+    });
+  </script>
 </body>
 </html>
